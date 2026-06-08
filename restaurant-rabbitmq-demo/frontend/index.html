@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Order System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+    <h1>Restaurant Order System 🍔</h1>
+
+    <p class="subtitle">
+        Spring Boot + RabbitMQ + Docker
+    </p>
+
+    <div class="architecture">
+        Order Service → RabbitMQ → Kitchen Service
+    </div>
+
+    <div class="container">
+
+   
+
+        <!-- PRODUCER -->
+        <div class="card">
+
+            <span class="card-tag pc-tag">Producer</span>
+            <h2>Create Order</h2>
+
+            <label>Customer Name</label>
+            <input
+                    id="customerName"
+                    type="text"
+                    placeholder="Sarah">
+
+            <label>Items</label>
+            <input
+                    id="items"
+                    type="text"
+                    placeholder="Burger, Fries">
+
+            <button onclick="sendOrder()">
+                Send Order
+            </button>
+
+            <div id="response"></div>
+
+        </div>
+
+        <!-- CONSUMER -->
+        <div class="card">
+
+            <span class="card-tag pc-tag">Consumer</span>
+
+            <div class="header-row">
+                <h2>Received Orders</h2>
+
+                <button class="refresh-btn" onclick="loadOrders()">
+                    Refresh
+                </button>
+            </div>
+
+            <div id="orders">
+                No events yet...
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
